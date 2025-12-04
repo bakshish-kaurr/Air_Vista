@@ -11,45 +11,45 @@ The system includes these core tables with 10 sample records each:
 - **Flights**: Flight schedules (routes, times, aircraft, status, gates)
 - **Bookings**: Booking details (passenger-flight links, seats, pricing, status)
 - **Baggage**: Baggage tracking (tags, weights, status per booking)
-- **BaggageAudit**: Audit trail for baggage status changes[file:1]
+- **BaggageAudit**: Audit trail for baggage status changes
 
 ## Key Features
 
 ### Views (3 Reporting Views)
 - `vwFlightSchedule`: Complete flight schedules with airline, aircraft, and airport details
 - `vwBookingDetails`: Passenger bookings with flight routes, seats, and pricing
-- `vwRevenueByAirline`: Airline revenue analytics (total/pending revenue, avg booking value)[file:1]
+- `vwRevenueByAirline`: Airline revenue analytics (total/pending revenue, avg booking value)
 
 ### Stored Procedures (4 Business Operations)
 - `spBookFlight`: Creates bookings with auto-generated references
 - `spGetFlightStatus`: Flight details with seat availability by number/date
 - `spUpdateFlightStatus`: Validates and updates flight status
-- `spGenerateRevenueReport`: Detailed revenue by airline, seat class, date range[file:1]
+- `spGenerateRevenueReport`: Detailed revenue by airline, seat class, date range
 
 ### Functions (2 Scalar Functions)
 - `fnCalculateOccupancyRate`: Flight occupancy percentage
-- `fnGetPassengerBookingCount`: Passenger's confirmed booking count[file:1]
+- `fnGetPassengerBookingCount`: Passenger's confirmed booking count
 
 ### Cursors (2 Row Processing)
 - `cursorActiveFlights`: Iterates and prints scheduled flights
-- `cursorPendingPayments`: Bulk updates pending payments to completed[file:1]
+- `cursorPendingPayments`: Bulk updates pending payments to completed
 
 ### Indexes (5 Performance Optimized)
 - Flights: `DepartureDateTime`, `FlightNumber`
 - Bookings: `PassengerID`, `FlightID`
-- Passengers: `Email`[file:1]
+- Passengers: `Email`
 
 ### Triggers (3 Business Rules)
 - `trgUpdateFlightDuration`: Auto-calculates flight duration
 - `trgPreventOverbooking`: Blocks bookings when flights are full
-- `trgLogBaggageStatusChange`: Audits baggage status changes[file:1]
+- `trgLogBaggageStatusChange`: Audits baggage status changes
 
 
 
 
-## Authors
-**Bakshish Kaur** & **Subham Harbola**  
-*CAP570 Project, 2025*
+## Credits
+**Bakshish Kaur** 
+-   *CAP570 Project, 2025*
 
 ---
 
